@@ -1,8 +1,10 @@
 #! /bin/bash -e
 docker run \
     --rm \
-    --name=golum \
-    -p 4567:4567 \
-    -e PUID=1000 \
-    -e PGID=1000 \
-    cgspeck/gollum:latest
+    --name=gwiki \
+    -p 80:4567 \
+    -e PUID=$(id -u) \
+    -e PGID=$(id -g) \
+    -e GOLLUM_OPTIONS="--config=/wiki/.config/config.rb" \
+    -v /data/gollumWiki:/wiki \
+    mygollum/wiki:latest

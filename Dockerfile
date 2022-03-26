@@ -1,4 +1,4 @@
-FROM ruby:3.0
+FROM ruby:3
 
 LABEL maintainer="cgspeck@gmail.com"
 
@@ -9,10 +9,10 @@ RUN apt-get -y update \
   sudo \
   && rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler -v 2.2.16
+RUN gem install bundler
 
 # throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+# == RUN bundle config --global frozen 1
 
 WORKDIR /usr/src/app
 
@@ -30,7 +30,7 @@ ENV PGID=1000
 
 ENV GOLLUM_OPTIONS="--h1-title --allow-uploads page"
 ENV GOLLUM_AUTHOR_USERNAME="Gollum User"
-ENV GOLLUM_AUTHOR_EMAIL="gollum@example.org"
+ENV GOLLUM_AUTHOR_EMAIL="gollum@gollumWiki.org"
 EXPOSE 4567
 
 VOLUME $TARGET_DIR

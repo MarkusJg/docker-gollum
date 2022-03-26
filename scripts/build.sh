@@ -1,2 +1,2 @@
 #! /bin/bash -e
-docker build . -t cgspeck/gollum
+docker build . -t mygollum/wiki

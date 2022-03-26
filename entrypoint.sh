@@ -29,10 +29,10 @@ if [[ $# -eq 1 ]]; then
   esac
 fi
 
-if ! /usr/bin/git status $TARGET_DIR &> /dev/null; then
-  echo "Initialising git repository in $TARGET_DIR"
-  sudo -E -u gollumuser -H /usr/bin/git init $TARGET_DIR
-fi
+# if ! /usr/bin/git status $TARGET_DIR &> /dev/null; then
+#   echo "Initialising git repository in $TARGET_DIR"
+#   sudo -E -u gollumuser -H /usr/bin/git init $TARGET_DIR
+# fi
 
 echo "Starting gollum"
 exec sudo -E -u gollumuser -H /usr/src/app/wrapper.rb $GOLLUM_OPTIONS $TARGET_DIR
