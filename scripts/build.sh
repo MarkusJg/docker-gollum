@@ -1,2 +1,2 @@
 #! /bin/bash -e
-docker build . -t mygollum/wiki
+docker build . -t mygollum/wiki:0.1
